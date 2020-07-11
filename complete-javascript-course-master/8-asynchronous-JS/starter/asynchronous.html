@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Asynchronous JavaScript</title>
+  </head>
+  <body>
+    <h1>Asynchronous JavaScript</h1>
+    <script>
+      //   const second = () => {
+      //     setTimeout(() => {
+      //       console.log("Async Hey there....");
+      //     }, 2000);
+      //     console.log("second");
+      //   };
+
+      //   const first = () => {
+      //     console.log("Hey there....");
+      //     second();
+      //     console.log("end");
+      //   };
+      //   first();
+
+      //   function getRecipe() {
+      //     setTimeout(() => {
+      //       const recipeId = [234, 423, 122];
+      //       console.log(recipeId);
+
+      //       setTimeout(
+      //         (id) => {
+      //           const recipe = {
+      //             title: "Fresh Tomato pasta",
+      //             publisher: "Amol",
+      //           };
+      //           console.log(`${id}: ${recipe.title}`);
+
+      //           setTimeout(
+      //             (publisher) => {
+      //               const recipe = {
+      //                 title: "Biryani",
+      //                 publisher: "Amol",
+      //               };
+      //               console.log(`${publisher} recipe is ${recipe.title}`);
+      //             },
+      //             1500,
+      //             recipe.publisher
+      //           );
+      //         },
+      //         1000,
+      //         recipeId[2]
+      //       );
+      //     }, 1500);
+      //   }
+
+      //   getRecipe();
+
+      //   const getId = new Promise((resolve, reject) => {
+      //     setTimeout(() => {
+      //       resolve([234, 423, 122]);
+      //       //   reject([234, 423, 122]);
+      //     }, 1500);
+      //   });
+
+      //   const getRecipe = (recId) => {
+      //     return new Promise((resolve, reject) => {
+      //       setTimeout(
+      //         (id) => {
+      //           const recipe = {
+      //             title: "Fresh Tomato pasta",
+      //             publisher: "Amol",
+      //           };
+      //           resolve(`${id}: ${recipe.title}`);
+      //         },
+      //         1500,
+      //         recId
+      //       );
+      //     });
+      //   };
+
+      //   const getRelated = (publisher) => {
+      //     return new Promise((resolve, reject) => {
+      //       setTimeout(
+      //         (pub) => {
+      //           const recipe = {
+      //             title: "Biryani",
+      //             publisher: "Amol",
+      //           };
+      //           resolve(`${publisher} recipe is ${recipe.title}`);
+      //         },
+      //         1500,
+      //         publisher
+      //       );
+      //     });
+      //   };
+
+      //   //   getId
+      //     .then((ids) => {
+      //       console.log(ids);
+      //       return getRecipe(ids[1]);
+      //     })
+      //     .then((res) => {
+      //       console.log(res);
+      //       return getRelated("Amol");
+      //     })
+      //     .then((pub) => {
+      //       console.log(pub);
+      //     })
+      //     .catch((error) => {
+      //       console.log("error:", error);
+      //     });
+
+      //   async function getRecipes() {
+      //     const ids = await getId;
+      //     console.log(ids);
+      //     const recipe = await getRecipe(ids[0]);
+      //     console.log(recipe);
+      //     const publisher = await getRelated("Amol");
+      //     console.log(publisher);
+      //     return recipe;
+      //   }
+      //   getRecipes().then((res) => {
+      //     console.log(res);
+      //   });
+
+      fetch("https://www.metaweather.com/api/location/2487956/")
+        .then((res) => {
+          return res.json();
+        })
+        .then((res) => {});
+
+      async function getWhether(weoid) {
+        try {
+          const res = await fetch("https://www.metaweather.com/api/location/2487956/");
+          const data = await res.json();
+        } catch (error) {
+            
+        }
+      }
+      getWhether(2323444);
+    </script>
+  </body>
+</html>
